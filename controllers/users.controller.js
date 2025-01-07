@@ -65,7 +65,7 @@ const renderWithErrors = () => {
         return renderWithErrors()
       }
 
-      // Aqui asumo que si tengo usuario, compruebo las contraseñas
+      // Aqui asumos que si tengo usuario, compruebo las contraseñas
       return user.checkPassword(req.body.password)
         .then(match => {
           if (!match) {
@@ -84,3 +84,10 @@ const renderWithErrors = () => {
 module.exports.displayProfile = (req,res,next)=>{
     res.render('users/profile')
 }
+
+module.exports.logOut = (req, res, next) => {
+    req.session.destroy(err => {
+      if (err) next(err);
+      res.redirect('/');
+    });
+  }

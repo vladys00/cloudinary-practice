@@ -9,7 +9,7 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="/">Home</a>
         </li>
-        
+        {{#if currentUser}}
         <li class="nav-item">
           <a class="nav-link" href="/movies/create">Add movie</a>
         </li>
@@ -20,16 +20,16 @@
           <a class="nav-link" href="/profile">Profile</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/logout">Log out</a>
+           <a class="nav-link" href="/logout">Log out</a> 
         </li>
-       
+       {{else}}
          <li class="nav-item">
           <a class="nav-link" href="/login">Log In</a>
         </li>
          <li class="nav-item">
           <a class="nav-link" href="/register">Subscribe</a>
         </li>
-        
+        {{/if}}
         
        
         

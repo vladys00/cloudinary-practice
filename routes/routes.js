@@ -18,7 +18,7 @@ router.post('/register', isNotAuthenticated, upload.single('movie-cover-image'),
 router.get('/login', isNotAuthenticated, usersController.login)
 router.post('/login', isNotAuthenticated, usersController.doLogin)
 router.get('/profile', isAuthenticated, usersController.displayProfile)
-
+router.get('/logout', isAuthenticated, usersController.logOut)
 
 
 module.exports = router
