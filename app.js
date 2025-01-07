@@ -9,11 +9,17 @@ const path = require('path')
 
 const app = express()
 
+app.use(express.urlencoded({ extended: false }));
+
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "hbs");
 app.use(express.static(path.join(__dirname, "public")));
+const { sessionConfig, getCurrentUser } = require('./config/session.config')
 
 app.use(logger('dev')) // to see details in terminal (monitor and debug)
+app.use(sessionConfig);
+app.use(getCurrentUser);
+
 
 const routes = require('./routes/routes')
 app.use('/', routes)
